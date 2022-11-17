@@ -7,7 +7,7 @@ import Pagination from "../../components/common/Pagination/Pagination";
 import {episodesSelector} from "../../store/selectors/episodesSelector";
 import {clearEpisodesFilters, setEpisodesFilters} from "../../store/slices/episodesSlice";
 import SearchBar from "../../components/common/SearchBar/SearchBar";
-import s from './Episodes.module.scss'
+import s from '../../styles/layouts/page.module.scss'
 
 const Episodes = () => {
     const episodes = useSelector(state => state.episodes.data)
@@ -20,21 +20,21 @@ const Episodes = () => {
     }, [dispatch])
 
     return (
-        <div className={s.episodesContainer}>
+        <div className={s.pageContainer}>
             {loading && <Loader />}
-            <h2 className={s.episodesHeader}>Episodes</h2>
+            <h2 className={s.pageHeader}>Episodes</h2>
             <SearchBar
                 setFilters={setEpisodesFilters}
                 clearFilters={clearEpisodesFilters}
                 loadItems={loadEpisodes}
             />
-            {error.status && <p className={s.episodesError}>{error.message}</p>}
+            {error.status && <p className={s.pageError}>{error.message}</p>}
             {
                 !error.status && (
                     <>
-                        <ul className={s.episodesList}>
+                        <ul className={s.pageList}>
                             {episodes.map(el => (
-                                <li className={s.episodesListItem} key={el.id}>
+                                <li className={s.pageListItem} key={el.id}>
                                     <EpisodeCard episode={el}/>
                                 </li>
                             ))}

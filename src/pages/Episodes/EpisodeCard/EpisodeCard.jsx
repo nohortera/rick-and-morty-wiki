@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from "../../../components/common/Card/Card";
 import Arrow from "../../../components/common/Arrow/Arrow";
-import s from './EpisodeCard.module.scss'
+import s from '../../../styles/layouts/card.module.scss'
 
 const EpisodeCard = ({episode}) => {
     return (

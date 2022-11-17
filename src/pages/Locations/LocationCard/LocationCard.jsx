@@ -1,7 +1,7 @@
 import React from 'react';
 import Arrow from "../../../components/common/Arrow/Arrow";
 import Card from "../../../components/common/Card/Card";
-import s from './LocationCard.module.scss'
+import s from '../../../styles/layouts/card.module.scss'
 
 const LocationCard = ({ location }) => {
     return (

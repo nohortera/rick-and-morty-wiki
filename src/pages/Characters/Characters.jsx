@@ -8,7 +8,7 @@ import {charactersSelector} from "../../store/selectors/charactersSelector";
 import AdditionalFilters from "../../components/common/AdditionalFilters/AdditionalFilters";
 import SearchBar from "../../components/common/SearchBar/SearchBar";
 import {clearCharactersFilters, setCharactersFilters} from "../../store/slices/charactersSlice";
-import s from './Characters.module.scss'
+import s from '../../styles/layouts/page.module.scss'
 
 const Characters = () => {
     const characters = useSelector(state => state.characters)
@@ -21,11 +21,11 @@ const Characters = () => {
     }, [dispatch])
 
     return (
-        <div className={s.charactersContainer}>
+        <div className={s.pageContainer}>
             {loading && <Loader />}
             <div>
-                <h2 className={s.charactersHeader}>Characters</h2>
-                <div className={s.charactersFilters}>
+                <h2 className={s.pageHeader}>Characters</h2>
+                <div className={s.pageFilters}>
                     <AdditionalFilters
                         setFilters={setCharactersFilters}
                         clearFilters={clearCharactersFilters}
@@ -38,13 +38,13 @@ const Characters = () => {
                     />
                 </div>
             </div>
-            {error.status && <p className={s.charactersError}>{error.message}</p>}
+            {error.status && <p className={s.pageError}>{error.message}</p>}
             {
                 !error.status && (
                     <>
-                        <ul className={s.charactersList}>
+                        <ul className={s.pageList}>
                             {characters.data.map(el => (
-                                <li className={s.charactersListItem} key={el.id}>
+                                <li className={s.pageListItem} key={el.id}>
                                     <CharacterCard character={el}/>
                                 </li>
                             ))}

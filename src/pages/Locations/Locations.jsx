@@ -8,7 +8,7 @@ import LocationCard from "./LocationCard/LocationCard";
 import {clearLocationsFilters, setLocationsFilters} from "../../store/slices/locationsSlice";
 import {locationsSelector} from "../../store/selectors/locationsSelector";
 import AdditionalFilters from "../../components/common/AdditionalFilters/AdditionalFilters";
-import s from './Locations.module.scss'
+import s from '../../styles/layouts/page.module.scss'
 
 const Locations = () => {
     const locations = useSelector(locationsSelector)
@@ -21,11 +21,11 @@ const Locations = () => {
     }, [dispatch])
 
     return (
-        <div className={s.locationsContainer}>
+        <div className={s.pageContainer}>
             {loading && <Loader />}
 
-            <h2 className={s.locationsHeader}>Locations</h2>
-            <div className={s.locationsFilters}>
+            <h2 className={s.pageHeader}>Locations</h2>
+            <div className={s.pageFilters}>
                 <AdditionalFilters
                     setFilters={setLocationsFilters}
                     clearFilters={clearLocationsFilters}
@@ -38,14 +38,14 @@ const Locations = () => {
                 />
             </div>
 
-            {error.status && <p className={s.locationsError}>{error.message}</p>}
+            {error.status && <p className={s.pageError}>{error.message}</p>}
 
             {
                 !error.status && (
                     <>
-                        <ul className={s.locationsList}>
+                        <ul className={s.pageList}>
                             {locations.data.map(el => (
-                                <li className={s.locationsListItem} key={el.id}>
+                                <li className={s.pageListItem} key={el.id}>
                                     <LocationCard location={el}/>
                                 </li>
                             ))}
