@@ -1,0 +1,19 @@
+.headerWrapper {
+  @apply bg-gradient-to-r py-2 from-indigo-500 to-blue-600;
+
+  &Container {
+    @apply container mx-auto py-1 flex items-center justify-between;
+  }
+
+  .headerImage {
+    @apply h-14;
+  }
+
+  .headerNavbar {
+    @apply text-lg space-x-5 text-white font-light;
+
+    a {
+      @apply hover:text-lime-400 duration-150;
+    }
+  }
+}

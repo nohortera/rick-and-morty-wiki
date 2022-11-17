@@ -1,14 +1,15 @@
 import React from 'react';
-import Card from "../../../common/Card/Card";
-import Arrow from "../../../common/Arrow/Arrow";
+import Card from "../../../components/common/Card/Card";
+import Arrow from "../../../components/common/Arrow/Arrow";
+import s from './CharacterCard.module.scss'
 
 const CharacterCard = ({character}) => {
     return (
         <Card name={character.name} image={character.image}>
-            <div className='flex flex-col justify-between h-full'>
-                <p className='text-sm text-gray-300'>{character.species}</p>
-                <div className='flex space-x-5'>
-                    <div className='text-gray-300'>
+            <div className={s.contentWrapper}>
+                <p className={s.itemType}>{character.species}</p>
+                <div className={s.infoWrapper}>
+                    <div className={s.infoKeys}>
                         <p>Gender:</p>
                         <p>Status:</p>
                     </div>
@@ -17,7 +18,7 @@ const CharacterCard = ({character}) => {
                         <p>{character.status}</p>
                     </div>
                 </div>
-                <button className='text-left inline-block flex items-center space-x-2 text-blue-600 group w-fit'>
+                <button className={s.itemLink}>
                     <span>Details</span>
                     <Arrow />
                 </button>

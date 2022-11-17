@@ -1,0 +1,22 @@
+.contentWrapper {
+  @apply flex flex-col justify-between h-full;
+
+  .itemType {
+    @apply text-sm text-gray-300;
+  }
+
+  .infoWrapper {
+    @apply flex space-x-5;
+
+    .infoKeys {
+      @apply text-gray-300;
+    }
+  }
+
+  .itemLink {
+    @apply text-left inline-block flex items-center space-x-2 text-blue-600 w-fit;
+
+    &:hover svg {
+      @apply rotate-90}
+  }
+}

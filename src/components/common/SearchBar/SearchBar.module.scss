@@ -1,0 +1,13 @@
+.searchBarForm {
+  @apply space-x-5 flex items-center my-10 ml-5 justify-center;
+
+  &Input {
+    @apply w-[400px] h-[50px] box-border border rounded-md p-[10px] text-lg border-blue-600 focus:border-blue-600 shadow-custom placeholder:text-gray-300 placeholder:font-mono;
+  }
+
+  &Button {
+    @apply px-5 h-[50px] text-white bg-blue-600 hover:shadow-md hover:shadow-blue-400 duration-300 rounded-md;
+  }
+}
+
+

@@ -1,21 +1,22 @@
 import React from 'react';
-import Card from "../../../common/Card/Card";
-import Arrow from "../../../common/Arrow/Arrow";
+import Card from "../../../components/common/Card/Card";
+import Arrow from "../../../components/common/Arrow/Arrow";
+import s from './EpisodeCard.module.scss'
 
 const EpisodeCard = ({episode}) => {
     return (
         <Card name={episode.name}>
-            <div className='flex flex-col justify-between h-full'>
-                <p className='text-sm text-gray-300'>{episode.episode}</p>
-                <div className='flex space-x-5'>
-                    <div className='text-gray-300'>
+            <div className={s.contentWrapper}>
+                <p className={s.itemType}>{episode.episode}</p>
+                <div className={s.infoWrapper}>
+                    <div className={s.infoKeys}>
                         <p>Release date:</p>
                     </div>
                     <div>
                         <p>{episode.air_date}</p>
                     </div>
                 </div>
-                <button className='text-left inline-block flex items-center space-x-2 text-blue-600 group w-fit'>
+                <button className={s.itemLink}>
                     <span>Details</span>
                     <Arrow />
                 </button>

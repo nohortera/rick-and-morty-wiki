@@ -1,13 +1,18 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loadCharacters} from "../../../store/thunks/charactersThunk";
-import Loader from "../../common/Loader/Loader";
+import {loadCharacters} from "../../store/thunks/charactersThunk";
+import Loader from "../../components/common/Loader/Loader";
 import CharacterCard from "./CharacterCard/CharacterCard";
-import Pagination from "../../common/Pagination/Pagination";
-import {charactersSelector} from "../../../store/selectors/charactersSelector";
+import Pagination from "../../components/common/Pagination/Pagination";
+import {charactersSelector} from "../../store/selectors/charactersSelector";
+import AdditionalFilters from "../../components/common/AdditionalFilters/AdditionalFilters";
+import SearchBar from "../../components/common/SearchBar/SearchBar";
+import {clearCharactersFilters, setCharactersFilters} from "../../store/slices/charactersSlice";
+import s from './Characters.module.scss'
 
 const Characters = () => {
-    const characters = useSelector(state => state.characters.data)
+    const characters = useSelector(state => state.characters)
+    const error = useSelector(state => state.error.status)
     const loading = useSelector(state => state.loading)
     const dispatch = useDispatch()
 
@@ -16,14 +21,38 @@ const Characters = () => {
     }, [dispatch])
 
     return (
-        <div className='container mx-auto mt-20'>
+        <div className={s.charactersContainer}>
             {loading && <Loader />}
-            <h2 className='text-4xl font-bold text-center my-5 mb-16'>Characters page</h2>
-            <ul className='text-lg gap-5 my-5 flex flex-wrap items-center justify-center'>
-                {characters.map(el => <li className='w-[48%]' key={el.id}><CharacterCard character={el}/></li>)}
-            </ul>
-
-            <Pagination onPageChange={loadCharacters} selector={charactersSelector} />
+            <div>
+                <h2 className={s.charactersHeader}>Characters</h2>
+                <div className={s.charactersFilters}>
+                    <AdditionalFilters
+                        setFilters={setCharactersFilters}
+                        clearFilters={clearCharactersFilters}
+                        filters={Object.keys(characters.filters).filter(el => el !== 'name')}
+                    />
+                    <SearchBar
+                        setFilters={setCharactersFilters}
+                        clearFilters={clearCharactersFilters}
+                        loadItems={loadCharacters}
+                    />
+                </div>
+            </div>
+            {error.status && <p className={s.charactersError}>{error.message}</p>}
+            {
+                !error.status && (
+                    <>
+                        <ul className={s.charactersList}>
+                            {characters.data.map(el => (
+                                <li className={s.charactersListItem} key={el.id}>
+                                    <CharacterCard character={el}/>
+                                </li>
+                            ))}
+                        </ul>
+                        <Pagination onPageChange={loadCharacters} selector={charactersSelector} />
+                    </>
+                )
+            }
         </div>
     );
 };

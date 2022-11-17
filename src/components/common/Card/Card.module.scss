@@ -1,0 +1,15 @@
+.cardWrapper {
+  @apply rounded-lg bg-white py-5 px-10 shadow-custom flex font-mono items-center min-w-fit;
+
+  .cardImage {
+    @apply rounded-md w-2/5;
+  }
+
+  &Description {
+    @apply w-full flex flex-col px-5 h-full h-[200px];
+
+    .descriptionHeader {
+      @apply text-xl font-bold;
+    }
+  }
+}

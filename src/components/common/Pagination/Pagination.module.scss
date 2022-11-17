@@ -1,0 +1,19 @@
+.container {
+  @apply flex space-x-0.5 justify-center m-14 font-mono items-center text-blue-600;
+}
+
+.nextLink {
+  @apply p-3 border border-gray-300 hover:bg-gray-300 ml-3 rounded-md duration-150;
+}
+
+.previousLink {
+  @apply p-3 border border-gray-300 hover:bg-gray-300 mr-3 rounded-md duration-150;
+}
+
+.pageLink {
+  @apply p-3 border border-gray-300 hover:bg-gray-300 box-border rounded-md duration-150;
+}
+
+.activeLink {
+  @apply font-bold border-blue-600;
+}

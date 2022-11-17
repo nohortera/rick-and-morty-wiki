@@ -1,0 +1,11 @@
+.filterLabel {
+  @apply flex justify-between text-gray-300 font-mono items-center w-full capitalize;
+
+  .filterInput {
+    @apply border border-blue-600 rounded-md py-1 px-3 w-[150px] text-black;
+  }
+}
+
+//.filterInput {
+//  @apply border border-blue-600 rounded-md py-1 px-3 w-[150px] text-black
+//}

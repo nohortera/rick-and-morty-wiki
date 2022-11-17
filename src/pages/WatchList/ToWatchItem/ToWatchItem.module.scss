@@ -1,0 +1,17 @@
+.toWatch {
+  &Item {
+    @apply border-b border-gray-300 px-5 flex py-3 mx-auto;
+
+    &Input {
+      @apply h-7 w-7 rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 mr-5 cursor-pointer duration-300;
+    }
+
+    &Flex {
+      @apply flex justify-between w-full;
+    }
+
+    &Button {
+      @apply px-3 h-7 text-white bg-red-600 hover:shadow-md hover:shadow-red-400 duration-300 rounded-md ml-5;
+    }
+  }
+}

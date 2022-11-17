@@ -1,0 +1,7 @@
+.loaderWrapper {
+  @apply bg-[rgba(0,0,0,0.6)] top-0 right-0 z-50 fixed w-screen h-screen flex items-center;
+
+  .loaderImage {
+    @apply mx-auto h-20 animate-bounce;
+  }
+}

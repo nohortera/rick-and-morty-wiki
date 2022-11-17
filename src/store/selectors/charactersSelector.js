@@ -1,1 +1,1 @@
-export default charactersCurrentPageSelector = state => state.characters.currentPage
+export const charactersSelector = state => state.characters
