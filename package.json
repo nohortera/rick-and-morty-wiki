@@ -1,6 +1,10 @@
 {
   "name": "rick-and-morty-wiki",
   "version": "0.1.0",
+  "engines": {
+    "node": "18.12.1",
+    "npm": "8.19.2"
+  },
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
