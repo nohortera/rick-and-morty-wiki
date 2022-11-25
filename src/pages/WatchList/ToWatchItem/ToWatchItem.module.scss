@@ -1,13 +1,67 @@
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+@keyframes strike{
+
+}
+
 .toWatch {
   &Item {
     @apply border-b border-gray-300 px-5 flex py-3 mx-auto;
 
     &Input {
-      @apply h-7 w-7 rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 mr-5 cursor-pointer duration-300;
+      @apply h-7 w-7 rounded-md border-gray-300 text-blue-600 focus:ring-0 mr-5 cursor-pointer duration-300;
+
     }
 
     &Flex {
       @apply flex justify-between w-full;
+    }
+
+    &Description {
+      @apply relative;
+
+      &Checked {
+        @apply text-gray-300;
+        @include keyframes(crossed-out) {
+          0% {
+            @apply line-through;
+          }
+          100% {
+            @apply line-through;
+          }
+        }
+        animation: 1s infinite 0.5s crossed-out;
+
+        &::after {
+          @apply bg-gray-300;
+          @include keyframes(strike) {
+            0% {
+              @apply w-0
+            }
+            99% {
+              @apply w-full
+            }
+            100% {
+              @apply hidden
+            }
+          }
+          content: ' ';
+          position: absolute;
+          top: 12px;
+          left: 0;
+          width: 100%;
+          height: 1.5px;
+          animation-name: strike;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+        }
+      }
     }
 
     &Button {

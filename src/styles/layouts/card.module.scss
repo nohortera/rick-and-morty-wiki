@@ -17,6 +17,15 @@
     @apply text-left inline-block flex items-center space-x-2 text-blue-600 w-fit;
 
     &:hover svg {
-      @apply rotate-90}
+      @apply rotate-90
+    }
+
+    &:hover:disabled svg {
+      @apply rotate-0
+    }
+
+    &:disabled {
+      @apply grayscale cursor-not-allowed
+    }
   }
 }

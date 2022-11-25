@@ -16,7 +16,7 @@ const EpisodeCard = ({episode}) => {
                         <p>{episode.air_date}</p>
                     </div>
                 </div>
-                <button className={s.itemLink}>
+                <button className={s.itemLink} disabled title='Coming soon...'>
                     <span>Details</span>
                     <Arrow />
                 </button>

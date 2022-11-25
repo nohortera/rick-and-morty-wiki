@@ -30,7 +30,7 @@ const Episodes = () => {
             />
             {error.status && <p className={s.pageError}>{error.message}</p>}
             {
-                !error.status && (
+                !error.status && !loading && (
                     <>
                         <ul className={s.pageList}>
                             {episodes.map(el => (

@@ -1,0 +1,19 @@
+.info {
+  @apply grid grid-cols-2 gap-5 text-2xl font-mono;
+
+  p {
+    @apply odd:text-gray-300;
+  }
+}
+
+.backLink {
+  @apply mt-16 ml-3 text-left inline-block flex items-center space-x-2 text-blue-600 w-fit text-3xl;
+
+  svg {
+    @apply rotate-180;
+  }
+
+  &:hover svg {
+    @apply rotate-[270deg]
+  }
+}

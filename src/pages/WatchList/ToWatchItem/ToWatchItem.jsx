@@ -15,7 +15,11 @@ const ToWatchItem = ({ item }) => {
                 onChange={() => dispatch(toggleToWatchItemStatus(item.id))}
             />
             <div className={s.toWatchItemFlex}>
-                <p className=''>{item.title}</p>
+                <p
+                    className={s.toWatchItemDescription + ' ' + (item.status && s.toWatchItemDescriptionChecked)}
+                >
+                    {item.title}
+                </p>
                 <button
                     className={s.toWatchItemButton}
                     onClick={() => dispatch(removeToWatchItem(item.id))}

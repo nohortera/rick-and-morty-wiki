@@ -5,7 +5,7 @@ import s from './Pagination.module.scss'
 
 const Pagination = ({ onPageChange, selector }) => {
     const dispatch = useDispatch()
-    const {totalCount} = useSelector(selector)
+    const {totalCount, currentPage} = useSelector(selector)
 
     const handlePageClick = (event) => {
         dispatch(onPageChange(event.selected + 1))
@@ -20,6 +20,7 @@ const Pagination = ({ onPageChange, selector }) => {
             pageCount={totalCount}
             previousLabel="Previous"
             renderOnZeroPageCount={null}
+            forcePage={currentPage - 1}
             containerClassName={s.container}
             nextLinkClassName={s.nextLink}
             previousLinkClassName={s.previousLink}

@@ -40,7 +40,7 @@ const Characters = () => {
             </div>
             {error.status && <p className={s.pageError}>{error.message}</p>}
             {
-                !error.status && (
+                !error.status && !loading && (
                     <>
                         <ul className={s.pageList}>
                             {characters.data.map(el => (

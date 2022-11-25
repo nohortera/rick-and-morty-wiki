@@ -9,11 +9,13 @@ const Header = () => {
         <div className={s.headerWrapper}>
             <div className={s.headerWrapperContainer}>
                 <div>
-                    <img
-                        className={s.headerImage}
-                        src={img}
-                        alt="logo"
-                    />
+                    <Link to='/characters'>
+                        <img
+                            className={s.headerImage}
+                            src={img}
+                            alt="logo"
+                        />
+                    </Link>
                 </div>
                 <nav className={s.headerNavbar}>
                     <Link to='/characters'>Characters</Link>
