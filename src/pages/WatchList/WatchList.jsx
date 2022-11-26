@@ -30,7 +30,7 @@ const WatchList = () => {
                 <input className={s.watchListFormInput} placeholder='I`d like to watch...' type="text" value={title} onChange={event => setTitle(event.target.value)} />
                 <button className={s.watchListFormButton}>Add to watch</button>
             </form>
-            {!watchList.length && !loading && <p className=''>Add what you want to watch</p>}
+            {!watchList.length && !loading && <p className={s.watchListPlaceholder}>Add what you want to watch</p>}
 
             {!!watchList.length && !loading && (
                 <ul className={s.watchList}>
