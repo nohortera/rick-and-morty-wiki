@@ -1,13 +1,13 @@
 import React from 'react';
-import s from './Card.module.scss'
+import s from "./Card.module.scss"
 
 const Card = ({name, image, children}) => {
     return (
         <div className={s.cardWrapper}>
             {image && <img className={s.cardImage} src={image} alt="avatar"/>}
 
-            <div className={s.cardWrapperDescription}>
-                <h3 className={s.descriptionHeader}>{name}</h3>
+            <div className={s.cardDescription}>
+                <h3 className={s.cardDescriptionHeader}>{name}</h3>
 
                 {children}
 

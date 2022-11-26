@@ -44,6 +44,9 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "resolve-url-loader": "5.0.0"
+  },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.13",
